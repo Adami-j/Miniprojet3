@@ -3,12 +3,17 @@ package fr.miniprojet3.miniprojet3;
 import fr.miniprojet3.miniprojet3.controller.CarteController;
 import fr.miniprojet3.miniprojet3.modele.Carte.Carte;
 import fr.miniprojet3.miniprojet3.vue.CarteVue;
+import fr.miniprojet3.miniprojet3.vue.GrilleCarteVue;
+import fr.miniprojet3.miniprojet3.vue.SelecteurDifficulteVue;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -32,25 +37,14 @@ public class HelloApplication extends Application {
         });
 
         BorderPane borderPane = fxmlLoader.load();
+        HBox buttonBox = new SelecteurDifficulteVue();
 
-        GridPane gridPane = new GridPane();
+        borderPane.setTop(buttonBox);
+        GridPane gridPane = new GrilleCarteVue();
         gridPane.setVgap(10);
         gridPane.setHgap(10);
 
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                carte = new Carte("file:src/main/resources/fr/miniprojet3/miniprojet3/images/imagesCarte/faceDePoulpe.jpg");
 
-
-                carteVue = new CarteVue(carte);
-                CarteController carteController = new CarteController(carte,carteVue);
-                carteVue.setOnMouseClicked(event -> {
-                    carteController.onCarteClick();
-                });
-
-                gridPane.add(carteVue, i, j);
-            }
-        }
 
         borderPane.setCenter(gridPane);
         // Create the scene
