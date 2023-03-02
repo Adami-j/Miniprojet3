@@ -12,9 +12,6 @@ public class CarteVue extends ImageView {
     private Carte carte;
 
 
-    public void initialiserCarte(Image image){
-
-    }
 
     public CarteVue(Carte carte) {
         this.carte = carte;
