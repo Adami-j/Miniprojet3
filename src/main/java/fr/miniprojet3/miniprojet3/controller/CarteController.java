@@ -6,32 +6,39 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CarteController {
 
     private Carte carte;
-
     private ImageView imageView;
     private CarteVue carteVue;
 
-    public CarteController(Carte carte,CarteVue carteVue) {
+    public CarteVue getCarteVue() {
+        return carteVue;
+    }
+
+    public CarteController(Carte carte, CarteVue carteVue) {
         this.carte = carte;
         this.carteVue = carteVue;
+
     }
 
     @FXML
     public void onCarteClick() {
+
         if(!carte.isEstRetournee()){
             System.out.println("Carte cliquée, carte : " + carte.getEstRetournee());
             this.retournerCarte(carteVue);
         }else {
-            dosCarte(carteVue);
+            this.dosCarte(carteVue);
             carte.setEstRetournee(false);
             System.out.println("Carte déjà retournée");
-        }
-        System.out.println("Carte cliquée, carte : " + carte.getEstRetournee());
 
-        System.out.println("Carte cliquée, carte : " + carte.getEstRetournee());
+        }
+
     }
 
 
@@ -41,8 +48,7 @@ public class CarteController {
 
     public void dosCarte(CarteVue carteVue){
         carteVue.setImage(new Image("file:src/main/resources/fr/miniprojet3/miniprojet3/images/imagesCarte/dos-carte-s10-hearthstone.jpg"));
-        carteVue.setVisible(false);
-        carte.setEstRetournee(true);
+        carte.setEstRetournee(false);
     }
 
 
@@ -52,5 +58,7 @@ public class CarteController {
         carte.setEstRetournee(true);
     }
 
-
+    public void remouve(){
+      this.carteVue.setVisible(false);
+    }
 }
