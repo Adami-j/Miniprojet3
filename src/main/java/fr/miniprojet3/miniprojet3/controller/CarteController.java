@@ -24,6 +24,10 @@ public class CarteController {
         if(!carte.isEstRetournee()){
             System.out.println("Carte cliquée, carte : " + carte.getEstRetournee());
             this.retournerCarte(carteVue);
+        }else {
+            dosCarte(carteVue);
+            carte.setEstRetournee(false);
+            System.out.println("Carte déjà retournée");
         }
         System.out.println("Carte cliquée, carte : " + carte.getEstRetournee());
 
@@ -37,6 +41,7 @@ public class CarteController {
 
     public void dosCarte(CarteVue carteVue){
         carteVue.setImage(new Image("file:src/main/resources/fr/miniprojet3/miniprojet3/images/imagesCarte/dos-carte-s10-hearthstone.jpg"));
+        carteVue.setVisible(false);
         carte.setEstRetournee(true);
     }
 
