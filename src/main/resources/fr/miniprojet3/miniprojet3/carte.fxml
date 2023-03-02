@@ -8,7 +8,7 @@
    <children>
       <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/dos-carte-s10-hearthstone.jpg" />
+            <Image url="@images/imagesCarte/dos-carte-s10-hearthstone.jpg" />
          </image></ImageView>
    </children>
 </Pane>
