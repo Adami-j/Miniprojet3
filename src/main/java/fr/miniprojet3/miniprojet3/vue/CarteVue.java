@@ -1,37 +1,40 @@
 package fr.miniprojet3.miniprojet3.vue;
 
+import fr.miniprojet3.miniprojet3.controller.CarteController;
 import fr.miniprojet3.miniprojet3.modele.Carte.Carte;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
-public class CarteVue extends StackPane {
+
+public class CarteVue extends ImageView {
 
     private Carte carte;
-    private Rectangle background;
-    private ImageView icone;
+    private CarteController carteController;
 
-    public CarteVue(Carte carte){
-        this.carte = carte;
-        this.background = new Rectangle(100, 100);
-        this.background.setStroke(Color.BLACK);
-        this.icone = new ImageView(carte.getImage());
+    public void initialiserCarte(Image image){
+
     }
 
-
-    public void setCarteRetournee(boolean retournee) {
-        this.carte.setEstRetournee(retournee);
-        this.background.setVisible(retournee);
-        this.icone.setVisible(retournee);
-    }
-
-    public void setCarte(Carte carte) {
+    public CarteVue(Carte carte, CarteController carteController) {
         this.carte = carte;
+        this.carteController = new CarteController(carte);
+        this.setImage(new Image("file:src/main/resources/fr/miniprojet3/miniprojet3/images/dos-carte-s10-hearthstone.jpg"));
+        this.setFitWidth(70);
+        this.setFitHeight(90);
+        this.setOnMouseClicked(mouseEvent -> carteController.onCarteClick());
     }
 
     public Carte getCarte() {
         return carte;
     }
 
+    public CarteController getCarteController() {
+        return carteController;
+    }
+
+
+    public void setOnMouseClicked() {
+       carteController.onCarteClick();
+    }
 }
