@@ -10,31 +10,23 @@ import javafx.scene.image.ImageView;
 public class CarteVue extends ImageView {
 
     private Carte carte;
-    private CarteController carteController;
+
 
     public void initialiserCarte(Image image){
 
     }
 
-    public CarteVue(Carte carte, CarteController carteController) {
+    public CarteVue(Carte carte) {
         this.carte = carte;
-        this.carteController = new CarteController(carte);
-        this.setImage(new Image("file:src/main/resources/fr/miniprojet3/miniprojet3/images/dos-carte-s10-hearthstone.jpg"));
-        this.setFitWidth(70);
-        this.setFitHeight(90);
-        this.setOnMouseClicked(mouseEvent -> carteController.onCarteClick());
+        this.setImage(new Image("file:src/main/resources/fr/miniprojet3/miniprojet3/images/imagesCarte/dos-carte-s10-hearthstone.jpg"));
+        this.setFitWidth(150);
+        this.setFitHeight(170);
+
     }
 
     public Carte getCarte() {
         return carte;
     }
 
-    public CarteController getCarteController() {
-        return carteController;
-    }
 
-
-    public void setOnMouseClicked() {
-       carteController.onCarteClick();
-    }
 }
