@@ -4,10 +4,13 @@ package fr.miniprojet3.miniprojet3.modele.Carte;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
+import java.util.Objects;
+
 public class Carte {
 
     private BooleanProperty estRetournee;
     private String image;
+
 
 
     public Carte(String image){
@@ -41,5 +44,17 @@ public class Carte {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        Carte carte = (Carte) o;
+        return  Objects.equals(image, carte.image);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(estRetournee, image);
     }
 }
