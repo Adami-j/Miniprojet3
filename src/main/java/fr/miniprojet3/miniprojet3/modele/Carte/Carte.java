@@ -23,5 +23,23 @@ public class Carte {
         this.estRetournee = estRetournee;
     }
 
+    public boolean isEstRetournee() {
+        return estRetournee.get();
+    }
 
+    public BooleanProperty estRetourneeProperty() {
+        return estRetournee;
+    }
+
+    public void setEstRetournee(boolean estRetournee) {
+        this.estRetournee.set(estRetournee);
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
