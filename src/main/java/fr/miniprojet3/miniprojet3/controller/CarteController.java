@@ -15,6 +15,7 @@ public class CarteController {
     private Carte carte;
     private ImageView imageView;
     private CarteVue carteVue;
+    private boolean estEnCoursDeJeu = false;
 
     public CarteVue getCarteVue() {
         return carteVue;
@@ -23,18 +24,18 @@ public class CarteController {
     public CarteController(Carte carte, CarteVue carteVue) {
         this.carte = carte;
         this.carteVue = carteVue;
+        this.estEnCoursDeJeu=false;
 
     }
 
     @FXML
     public void onCarteClick() {
 
-        if(!carte.isEstRetournee()){
+        if(!carte.isEstRetournee()&&!estEnCoursDeJeu){
+
             System.out.println("Carte cliquée, carte : " + carte.getEstRetournee());
             this.retournerCarte(carteVue);
         }else {
-            this.dosCarte(carteVue);
-            carte.setEstRetournee(false);
             System.out.println("Carte déjà retournée");
 
         }
@@ -60,5 +61,9 @@ public class CarteController {
 
     public void remouve(){
       this.carteVue.setVisible(false);
+    }
+
+    public void setEstEnCoursDeJeu(boolean estEnCoursDeJeu) {
+        this.estEnCoursDeJeu = estEnCoursDeJeu;
     }
 }
