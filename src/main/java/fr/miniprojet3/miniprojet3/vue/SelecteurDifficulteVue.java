@@ -1,5 +1,7 @@
 package fr.miniprojet3.miniprojet3.vue;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Button;
@@ -11,16 +13,16 @@ import java.io.File;
 
 public class SelecteurDifficulteVue extends HBox {
 
-    private StringProperty nombreLigne = new SimpleStringProperty();
-    private StringProperty nombreColonne = new SimpleStringProperty();
+    private IntegerProperty nombreLigne = new SimpleIntegerProperty(3);
+    private IntegerProperty nombreColonne = new SimpleIntegerProperty(3);
 
     public SelecteurDifficulteVue() {
-      initialiserSelecteurDifficulte();
-      this.setSpacing(10);
+        initialiserSelecteurDifficulte();
+        this.setSpacing(10);
 
     }
 
-    public void initialiserSelecteurDifficulte(){
+    public void initialiserSelecteurDifficulte() {
         Button button = new Button("Facile");
         Button button1 = new Button("Moyen");
         Button button2 = new Button("Difficile");
@@ -30,8 +32,8 @@ public class SelecteurDifficulteVue extends HBox {
             button.setTextFill(Color.BLACK);
             button1.setTextFill(Color.GREEN);
             button2.setTextFill(Color.BLACK);
-            nombreLigne.set("4");
-            nombreColonne.set("4");
+            nombreLigne.set(4);
+            nombreColonne.set(4);
             System.out.println(nombreColonne.get());
 
         });
@@ -39,8 +41,8 @@ public class SelecteurDifficulteVue extends HBox {
             button.setTextFill(Color.BLACK);
             button1.setTextFill(Color.BLACK);
             button2.setTextFill(Color.GREEN);
-            nombreLigne.set("6");
-            nombreColonne.set("6");
+            nombreLigne.set(6);
+            nombreColonne.set(6);
 
         });
         button.setOnAction(event -> {
@@ -48,37 +50,37 @@ public class SelecteurDifficulteVue extends HBox {
             button.setTextFill(Color.GREEN);
             button1.setTextFill(Color.BLACK);
             button2.setTextFill(Color.BLACK);
-            nombreLigne.set("2");
-            nombreColonne.set("2");
+            nombreLigne.set(2);
+            nombreColonne.set(2);
         });
 
 
         this.getChildren().add(button);
         this.getChildren().add(button1);
         this.getChildren().add(button2);
-        }
+    }
 
-    public String getNombreLigne() {
+    public int getNombreLigne() {
         return nombreLigne.get();
     }
 
-    public StringProperty nombreLigneProperty() {
+    public IntegerProperty nombreLigneProperty() {
         return nombreLigne;
     }
 
-    public void setNombreLigne(String nombreLigne) {
+    public void setNombreLigne(int nombreLigne) {
         this.nombreLigne.set(nombreLigne);
     }
 
-    public String getNombreColonne() {
+    public int getNombreColonne() {
         return nombreColonne.get();
     }
 
-    public StringProperty nombreColonneProperty() {
+    public IntegerProperty nombreColonneProperty() {
         return nombreColonne;
     }
 
-    public void setNombreColonne(String nombreColonne) {
+    public void setNombreColonne(int nombreColonne) {
         this.nombreColonne.set(nombreColonne);
     }
 }
