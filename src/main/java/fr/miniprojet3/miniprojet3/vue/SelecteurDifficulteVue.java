@@ -16,6 +16,7 @@ public class SelecteurDifficulteVue extends HBox {
     private IntegerProperty nombreLigne = new SimpleIntegerProperty(3);
     private IntegerProperty nombreColonne = new SimpleIntegerProperty(3);
 
+
     public SelecteurDifficulteVue() {
         initialiserSelecteurDifficulte();
         this.setSpacing(10);
@@ -26,24 +27,21 @@ public class SelecteurDifficulteVue extends HBox {
         Button button = new Button("Facile");
         Button button1 = new Button("Moyen");
         Button button2 = new Button("Difficile");
-        Button button3 = new Button("Charger des images");
+
 
         button1.setOnAction(event -> {
             button.setTextFill(Color.BLACK);
             button1.setTextFill(Color.GREEN);
             button2.setTextFill(Color.BLACK);
-            nombreLigne.set(4);
-            nombreColonne.set(4);
-            System.out.println(nombreColonne.get());
-
+            nombreLigne.set(3);
+            nombreColonne.set(3);
         });
         button2.setOnAction(event -> {
             button.setTextFill(Color.BLACK);
             button1.setTextFill(Color.BLACK);
             button2.setTextFill(Color.GREEN);
-            nombreLigne.set(6);
-            nombreColonne.set(6);
-
+            nombreLigne.set(4);
+            nombreColonne.set(4);
         });
         button.setOnAction(event -> {
 
