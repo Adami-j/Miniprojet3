@@ -9,6 +9,12 @@ public class RecupDossierUtil {
 
     private SimpleStringProperty path;
 
+    /**
+     * @Author : Julien ADAMI
+     *
+     * @param path des noms des fichiers
+     * @return
+     */
     public static ArrayList<String> getAllFiles(String path) {
         ArrayList<String> files = new ArrayList<String>();
         File directory = new File(path);
@@ -24,16 +30,6 @@ public class RecupDossierUtil {
         }
         return files;
     }
-
-    public static void main(String[] args) {
-        String path = "src/main/resources/fr/miniprojet3/miniprojet3/images/imagesCarte";
-        ArrayList<String> files = getAllFiles(path);
-        // Affiche le nom de tous les fichiers du répertoire
-        for (String file : files) {
-            System.out.println(file);
-        }
-    }
-
 
 
 }
