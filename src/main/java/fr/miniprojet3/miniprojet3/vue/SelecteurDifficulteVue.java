@@ -2,20 +2,16 @@ package fr.miniprojet3.miniprojet3.vue;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
-import javafx.stage.DirectoryChooser;
 
-import java.io.File;
 
 public class SelecteurDifficulteVue extends HBox {
 
-    private IntegerProperty nombreLigne = new SimpleIntegerProperty(3);
-    private IntegerProperty nombreColonne = new SimpleIntegerProperty(3);
-
+    private IntegerProperty nombreLigne = new SimpleIntegerProperty(2);
+    private IntegerProperty nombreColonne = new SimpleIntegerProperty(2);
 
     public SelecteurDifficulteVue() {
         initialiserSelecteurDifficulte();
@@ -23,6 +19,12 @@ public class SelecteurDifficulteVue extends HBox {
 
     }
 
+    /**
+     * @Author: Julien ADAMI
+     * Méthode qui initalise 3 boutons avec 3 difficultés
+     * et leur setOnAction qui permet de changer la valeur des propriétés nombreLigne et nombreColonne
+     * qui sont ajoutés à la Hbox
+     */
     public void initialiserSelecteurDifficulte() {
         Button button = new Button("Facile");
         Button button1 = new Button("Moyen");
