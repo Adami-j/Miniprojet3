@@ -6,10 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class CarteController {
 
     private Carte carte;
@@ -28,20 +24,25 @@ public class CarteController {
 
     }
 
+
+    /**
+     * @Author: Julien ADAMI
+     * Méthode qui permet de retourner la carte
+     * onclickListener
+     */
     @FXML
     public void onCarteClick() {
 
-        if(!carte.isEstRetournee()&&!estEnCoursDeJeu){
+        if(!carte.isEstRetournee()){
 
             System.out.println("Carte cliquée, carte : " + carte.getEstRetournee());
             this.retournerCarte(carteVue);
+
         }else {
+            this.dosCarte(carteVue);
             System.out.println("Carte déjà retournée");
-
         }
-
     }
-
 
     public CarteController getCarteController() {
         return this;

@@ -12,7 +12,12 @@ public class Carte {
     private String image;
 
 
-
+    /**
+     * @Author : Julien ADAMI
+     * Constructeur de la classe Carte
+     * qui contient le chemin de l'image et un boolean pour savoir si la carte est retournée
+     * @param image
+     */
     public Carte(String image){
         this.image = image;
         this.estRetournee = new SimpleBooleanProperty(false);
@@ -56,5 +61,13 @@ public class Carte {
     @Override
     public int hashCode() {
         return Objects.hash(estRetournee, image);
+    }
+
+    @Override
+    public String toString() {
+        return "Carte{" +
+                "estRetournee=" + estRetournee +
+                ", image='" + image + '\'' +
+                '}';
     }
 }
